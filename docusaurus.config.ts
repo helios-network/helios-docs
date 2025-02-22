@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Helios Hub',
-  tagline: 'All about the Helios Ecosystem to Learn, Build and Innovate.',
+  tagline: 'All about the Helios Ecosystem to Learn how to Build and Innovate.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -65,27 +65,47 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    colorMode: {
+      defaultMode: "light",
+      disableSwitch: true, // Prevents users from toggling dark mode
+      respectPrefersColorScheme: false, // Ignores user OS dark mode settings
+    },
     navbar: {
       title: 'Helios Hub',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Helios Network – Secure, Automated, and Interchain-Ready',
         src: 'img/logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'learnSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Learn',
         },
-        {to: '/articles', label: 'Helios Articles', position: 'left'},
+        {
+          type: 'docSidebar',
+          sidebarId: 'buildSidebar',
+          position: 'left',
+          label: 'Build',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'innovateSidebar',
+          position: 'left',
+          label: 'Innovate',
+        },
+        {to: '/articles', label: 'Articles', position: 'left'},
         {
           href: 'https://github.com/helios-network',
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://github.com/helios-network',
+          label: 'Helios Improvement Proposals (HIPs)',
+          position: 'right'
+        }
       ],
     },
     footer: {
@@ -95,7 +115,15 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Learn',
+              to: '/docs/intro',
+            },
+            {
+              label: 'Build',
+              to: '/docs/intro',
+            },
+            {
+              label: 'Innovate',
               to: '/docs/intro',
             },
           ],
@@ -118,12 +146,12 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Helios Articles',
+              label: 'Articles',
               to: '/articles',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/helios-network',
             },
           ],
         },

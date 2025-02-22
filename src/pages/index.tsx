@@ -11,18 +11,49 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
+        <Link
+        className="button button--secondary button--lg"
+        to="/docs/intro">
+        Learn About Helios
+      </Link>
+
+      <Link style={{ margin: "5px" }}
+        className="button button--secondary button--lg"
+        to="/articles">
+        Explore Insights & Articles
+      </Link>
+
+      <Link style={{ margin: "5px" }}
+        className="button button--secondary button--lg"
+        to="/docs/build">
+        Run a Node & Stake Tokens
+      </Link>
+
+      <Link style={{ margin: "5px" }}
+        className="button button--secondary button--lg"
+        to="/docs/develop">
+        Build & Deploy on Helios
+      </Link>
+
+      <Link style={{ margin: "5px" }}
+        className="button button--secondary button--lg"
+        to="/docs/governance">
+        Participate in Governance
+      </Link>
+
+      <Link style={{ margin: "5px" }}
+        className="button button--secondary button--lg"
+        to="/community">
+        Join the Helios Community
+      </Link>
+
         </div>
       </div>
     </header>
@@ -33,12 +64,9 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Welcome`}
+      description="Helios Hub is your gateway to the future of blockchain. Learn, build, and innovate with AI-powered automation, cross-chain interoperability, and decentralized governance.">
       <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
     </Layout>
   );
 }
