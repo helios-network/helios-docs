@@ -134,11 +134,11 @@ const config: Config = {
 
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discordapp.com/invite/heliosnetwork',
             },
             {
               label: 'Telegram',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discordapp.com/invite/heliosnetwork',
             },
           ],
         },
