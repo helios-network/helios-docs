@@ -1,0 +1,11 @@
+fmarinho:
+  name: Frederick Marinho
+  title: Co-Founder - Helios Foundation
+  image_url: https://i.imgur.com/vn6ZUVu.png
+  page:
+    # customize the url of the author page at /articles/authors/<permalink>
+    permalink: '/all-frederick-marinho-articles'
+  socials:
+    x: fredmhtoshi
+    linkedin: frederick-marinho-4ba80761
+    github: w0dm4n

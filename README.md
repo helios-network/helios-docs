@@ -61,9 +61,9 @@ We encourage community contributions! If you’d like to help improve the Helios
 For major changes, please open an issue first to discuss potential updates.
 
 ## Community & Support
-- **[Helios Website](https://helios-home.vercel.app/)**
+- **[Helios Website](https://helioschain.network/)**
 - **[Helios Discord](#)**
-- **[Helios Forum](#)**
+- **[Helios Telegram](#)**
 
 Join the Helios community and help build the future of decentralized networks!
 
