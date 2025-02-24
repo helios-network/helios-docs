@@ -1,4 +1,4 @@
-# Maintaining & Upgrading Your Node
+# Running & Maintaining  
 
 Proper maintenance ensures that your Helios node runs efficiently, stays synchronized with the network, and remains secure against threats. This guide covers essential maintenance tasks, upgrading procedures, and the additional steps required to run a validator node.
 
