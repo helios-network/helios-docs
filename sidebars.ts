@@ -80,8 +80,10 @@ const sidebars: SidebarsConfig = {
             "build/interchain-operations/bridging-assets",
             "build/interchain-operations/hyperion-modules",
             "build/interchain-operations/cross-chain-transactions",
+            "build/interchain-operations/interchain-governance",
           ],
         },
+        
       ],
     },
   ],
