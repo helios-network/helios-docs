@@ -133,6 +133,23 @@ const sidebars: SidebarsConfig = {
           ],
         },
         {
+          type: 'category',
+          label: 'Reference',
+          items: [
+            'innovate/reference/quick-start',
+            {
+              type: 'category',
+              label: 'Json RPC Methods',
+              items: [
+                'innovate/reference/json-rpc-methods/eth_accounts',
+                'innovate/reference/json-rpc-methods/eth_blockNumber',
+                'innovate/reference/json-rpc-methods/eth_call',
+                'innovate/reference/json-rpc-methods/eth_chainId',
+              ],
+            },
+          ],
+        },
+        {
           collapsible: true,
           collapsed: false,
           type: 'category',
