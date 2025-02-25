@@ -116,15 +116,15 @@ const config: Config = {
           items: [
             {
               label: 'Learn',
-              to: '/docs/intro',
+              to: '/docs/learn/intro/what-is-helios',
             },
             {
               label: 'Build',
-              to: '/docs/intro',
+              to: '/docs/build/running-a-node/system-requirements',
             },
             {
               label: 'Innovate',
-              to: '/docs/intro',
+              to: '/docs/innovate/building-with-helios/developing-dapps',
             },
           ],
         },

@@ -29,6 +29,6 @@ Helios supports **Cosmos-compatible wallets**, but Cosmos interactions are optio
 ## Checking Connection
 Once you've added the Helios network:
 - Try sending a small transaction to verify connectivity.
-- Check your wallet balance using the [Helios Explorer](TBD).
+- Check your wallet balance using the [Helios Explorer](https://explorer.helioschain.network).
 
 If you experience issues, refer to the **troubleshooting guide**.

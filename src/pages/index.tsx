@@ -9,7 +9,7 @@ import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
 function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+  const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       <div className="container">
@@ -18,41 +18,42 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-        <Link
-        className="button button--secondary button--lg"
-        to="/docs/intro">
-        Learn About Helios
-      </Link>
 
-      <Link style={{ margin: "5px" }}
-        className="button button--secondary button--lg"
-        to="/articles">
-        Explore Insights & Articles
-      </Link>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/learn/intro/what-is-helios">
+            Learn About Helios
+          </Link>
 
-      <Link style={{ margin: "5px" }}
-        className="button button--secondary button--lg"
-        to="/docs/build">
-        Run a Node & Stake Tokens
-      </Link>
+          <Link style={{ margin: "5px" }}
+            className="button button--secondary button--lg"
+            to="/articles">
+            Explore Insights & Articles
+          </Link>
 
-      <Link style={{ margin: "5px" }}
-        className="button button--secondary button--lg"
-        to="/docs/develop">
-        Build & Deploy on Helios
-      </Link>
+          <Link style={{ margin: "5px" }}
+            className="button button--secondary button--lg"
+            to="/docs/build/running-a-node/system-requirements">
+            Run a Node & Stake Tokens
+          </Link>
 
-      <Link style={{ margin: "5px" }}
-        className="button button--secondary button--lg"
-        to="/docs/governance">
-        Participate in Governance
-      </Link>
+          <Link style={{ margin: "5px" }}
+            className="button button--secondary button--lg"
+            to="/docs/innovate/building-with-helios/developing-dapps">
+            Build & Deploy on Helios
+          </Link>
 
-      <Link style={{ margin: "5px" }}
-        className="button button--secondary button--lg"
-        to="/community">
-        Join the Helios Community
-      </Link>
+          <Link style={{ margin: "5px" }}
+            className="button button--secondary button--lg"
+            to="/docs/build/staking-governance/governance-proposals">
+            Participate in Governance
+          </Link>
+
+          <Link style={{ margin: "5px" }}
+            className="button button--secondary button--lg"
+            to="/">
+            Join the Helios Community
+          </Link>
 
         </div>
       </div>
