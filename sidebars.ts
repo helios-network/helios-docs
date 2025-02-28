@@ -128,7 +128,6 @@ const sidebars: SidebarsConfig = {
           label: 'Helios Ecosystem & Grants',
           items: [
             'innovate/helios-ecosystem-and-grants/developer-incentives',
-            'innovate/helios-ecosystem-and-grants/funding-opportunities',
             'innovate/helios-ecosystem-and-grants/grant-programs',
           ],
         },
