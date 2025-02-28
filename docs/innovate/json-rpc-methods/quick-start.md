@@ -162,7 +162,7 @@ python index.py
 
 Now that you have successfully made a call to the Helios network, you can explore more functionalities and APIs provided. Here are some suggestions:
 
-- Explore other Json RPC Methods: Helios supports a wide range of APIs. You can find more information in the [JSON-RPC API method documentation](./json-rpc-methods/eth_chainId).
+- Explore other Json RPC Methods: Helios supports a wide range of APIs. You can find more information in the [JSON-RPC API method documentation](../json-rpc-methods/methods/eth_chainId).
 
 - Monitor your usage: Monitor your usage on the [MetaMask Developer dashboard](https://docs.metamask.io/developer-tools/dashboard/how-to/dashboard-stats/) to ensure you're not hitting your rate limits.
 

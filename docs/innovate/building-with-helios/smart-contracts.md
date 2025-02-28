@@ -146,4 +146,4 @@ npx hardhat deploy --network helios
 - [Helios Remix Plugin](https://remix.helioschain.network)
 - [Hyperion SDK Documentation](https://docs.helioschain.network/hyperion)
 
-For more detailed information about specific smart contract functionalities and examples, refer to the [Smart Contract Reference](../reference/smart-contracts).
+For more detailed information about specific smart contract functionalities and examples, refer to the [Smart Contract Reference](../building-with-helios/smart-contracts).

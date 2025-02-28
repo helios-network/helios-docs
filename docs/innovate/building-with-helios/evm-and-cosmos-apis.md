@@ -135,7 +135,7 @@ async function crossChainInteraction() {
    - Use environment variables for sensitive configuration
    - Validate all responses before processing
 
-For more detailed information about specific API endpoints and methods, refer to the [Helios API Reference](../reference/json-rpc-methods/eth_chainId).
+For more detailed information about specific API endpoints and methods, refer to the [Helios API Reference](../json-rpc-methods/methods/eth_chainId).
 
 References:
 
