@@ -1,6 +1,10 @@
 # EVM And Cosmos API's
 
+## Overview
+
 Helios provides dual API compatibility, supporting both EVM JSON-RPC and Cosmos gRPC endpoints. This allows developers to interact with the blockchain using familiar tools from both ecosystems.
+
+![image](/img/innovate/evm-cosmos-apis.png)
 
 ## EVM JSON-RPC Support
 
@@ -45,7 +49,7 @@ getBalance("0x742d35Cc6634C0532925a3b844Bc454e4438f44e");
 - `eth_getTransactionsByPageAndSize`
 - `eth_getValidatorsByPageAndSize`
 - `eth_getAllWhitelistedAssets`
-- And all other methods available in the section [Supported EVM Methods](../reference/json-rpc-methods)
+- And all other methods available in the section [Supported EVM Methods](../json-rpc-methods/quick-start)
 
 TODO: section dedicated Supported EVM Methods
 
@@ -54,6 +58,7 @@ TODO: section dedicated Supported EVM Methods
 Helios also implements Cosmos SDK's gRPC endpoints, enabling direct interaction with Cosmos-specific features like staking, governance, and IBC transfers.
 
 ### Available Endpoints
+
 - Mainnet gRPC: `grpc.helioschain.network:9090`
 - Testnet gRPC: `grpc-testnet.helioschain.network:9090`
 

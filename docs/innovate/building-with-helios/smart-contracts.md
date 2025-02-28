@@ -4,6 +4,8 @@
 
 Smart contracts on Helios blockchain are written in Solidity and executed on our embedded Ethereum Virtual Machine (EVM). Helios prioritizes full EVM compatibility, allowing developers to seamlessly port their existing smart contracts from other EVM-compatible chains without modification.
 
+![image](/img/innovate/helios-smart-contracts.png)
+
 ## Key Features
 
 ### 1. Full EVM Compatibility
@@ -22,6 +24,17 @@ Smart contracts can interact with other blockchain networks through Hyperion mod
 - Real-time data fetching from external chains
 - Consensus-driven validation of external contract states
 - Secure cross-chain contract interactions
+- Bridging tokens
+
+### 4. Autonomous CRON Tasks
+Smart contracts can initiate CRON tasks:
+- Running same function over specific range of blocks 
+- Executing daily transfer of fees
+- Make Daily Report of the smart contract work
+
+### 5. Interacting With AI Agents
+Helios introduce unique on-chain AI agent customisable functionnality, enabling smart contracts to:
+- Query specific AI agent over your node
 
 ## Using Hyperion in Smart Contracts
 
@@ -134,105 +147,3 @@ npx hardhat deploy --network helios
 - [Hyperion SDK Documentation](https://docs.helioschain.network/hyperion)
 
 For more detailed information about specific smart contract functionalities and examples, refer to the [Smart Contract Reference](../reference/smart-contracts).
-
-## Deploying Smart Contracts on Helios (EVM)
-
-Helios is fully EVM-compatible, meaning you can deploy Solidity smart contracts using Hardhat or Foundry.
-
-### 1. Create a New Hardhat Project
-
-```sh
-npx hardhat init
-cd my-helios-project
-```
-
-### 2. Configure Hardhat for Helios
-
-Modify `hardhat.config.js`:
-
-```js
-require("@nomicfoundation/hardhat-toolbox");
-
-module.exports = {
-  solidity: "0.8.20",
-  networks: {
-    heliosTestnet: {
-      url: "https://dataseed-testnet.helioschain.network",
-      accounts: ["YOUR_PRIVATE_KEY"],
-    },
-  },
-};
-```
-
-### 3. Write a Sample Smart Contract
-
-Create `contracts/MyContract.sol`:
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-contract MyContract {
-    string public message;
-
-    constructor(string memory _message) {
-        message = _message;
-    }
-
-    function updateMessage(string memory _newMessage) public {
-        message = _newMessage;
-    }
-}
-```
-
-### 4. Write a deploy script file
-
-Create `scripts/deploy.js`:
-
-```js
-const hre = require("hardhat");
-
-async function main() {
-
-  const contract = await hre.ethers.getContractFactory("MyContract");
-  const ct = await contract.deploy();
-
-  await ct.deployed();
-
-  console.log(
-    `Contract deployed to ${ct.address}`
-  );
-}
-
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
-```
-
-### 4. Run the commands to deploy the contract
-
-```
-npx hardhat compile
-npx hardhat run --network heliosTestnet scripts/deploy.js
-```
-
-## Overview
-Hyperion Modules in Helios handle cross-chain communication, transaction validation, and decentralized bridging.  
-
-They enable Helios nodes to interact with external blockchains like Ethereum, AVAX, Polygon, and BNB Chain by fetching data directly from external RPC endpoints.
-
----
-
-## What Are Hyperion Modules?
-Hyperion Modules operate as secure interchain relayers, responsible for:
-- Monitoring external blockchains for transactions (deposits, withdrawals).
-- Relaying cross-chain transaction data to Helios for validation.
-- Enforcing consensus mechanisms to prevent fraudulent or double-spent transactions.
-
-### Key Features of Hyperion Modules
-- Direct RPC Connection: Unlike traditional light clients, Hyperion Modules fetch data from external RPC endpoints instead of running full node infrastructure.
-- Stake-Weighted Reputation Model: Hyperion relayers are prioritized based on their staking power and reputation score.
-- Multi-Chain Support: Separate modules exist for Ethereum, AVAX, BNB Chain, and other chains.
