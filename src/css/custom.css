@@ -27,6 +27,30 @@
   --ifm-navbar-link-hover-color: #0b61d9;
 }
 
+.katex-html {
+  display: none !important;
+}
+
+
+/* .katex-mathml {
+  margin-bottom:5px;
+} */
+
+.katex-display {
+  text-align: left !important;
+  display: inline-block !important;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.katex-display::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #ccc; /* Adjust color if needed */
+  margin-top: 10px;
+}
 
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */

@@ -29,6 +29,19 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Helios Economics',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        'learn/helios-economics/tokenomics-overview', 
+        'learn/helios-economics/minting-inflation-mechanics',
+        'learn/helios-economics/supply-reward-distribution',
+        'learn/helios-economics/whale-limit-apy-adjustment',
+        'learn/helios-economics/treasury-slashing-mechanisms',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Helios Architecture',
       collapsible: true,
       collapsed: false,
