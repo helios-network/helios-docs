@@ -48,6 +48,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'learn/architecture/overview', 
         'learn/architecture/system-design',
+        'learn/architecture/epoch-based',
         'learn/architecture/consensus-iposr',
         'learn/architecture/security-scalability',
       ],
@@ -146,9 +147,10 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'category',
-          label: 'Json RPC Methods',
+          label: 'RPC Methods',
           items: [
             'innovate/json-rpc-methods/quick-start',
+            'innovate/json-rpc-methods/grpc-epoch',
             {
               type: 'category',
               label: 'Methods',
