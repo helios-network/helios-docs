@@ -132,9 +132,8 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Helios Improvement Proposals (HIPs)',
           items: [
-            'innovate/helios-improvement-proposals/community-upgrades',
-            'innovate/helios-improvement-proposals/governance-process',
-            'innovate/helios-improvement-proposals/tracking-and-submitting-hips',
+            'innovate/helios-improvement-proposals/overview',
+            'innovate/helios-improvement-proposals/community-upgrades-hips',
           ],
         },
         {

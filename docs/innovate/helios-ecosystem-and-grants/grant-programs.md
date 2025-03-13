@@ -1,3 +1,5 @@
+# Grant Programs
+
 Empowering developers to innovate and create public goods within the Helios Chain ecosystem.
 
 ## Overview
