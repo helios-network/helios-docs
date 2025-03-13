@@ -129,6 +129,8 @@ const sidebars: SidebarsConfig = {
           ],
         },
         {
+          collapsible: true,
+          collapsed: false,
           type: 'category',
           label: 'Helios Improvement Proposals (HIPs)',
           items: [
@@ -137,11 +139,24 @@ const sidebars: SidebarsConfig = {
           ],
         },
         {
+          collapsible: true,
+          collapsed: false,
           type: 'category',
           label: 'Helios Ecosystem & Grants',
           items: [
             'innovate/helios-ecosystem-and-grants/developer-incentives',
             'innovate/helios-ecosystem-and-grants/grant-programs',
+          ],
+        },
+        {
+          collapsible: true,
+          collapsed: false,
+          type: 'category',
+          label: 'The Future of Helios',
+          items: [
+            'innovate/future-of-helios/long-term-vision',
+            'innovate/future-of-helios/interoperability-expansion',
+            'innovate/future-of-helios/ai-driven-blockchain',
           ],
         },
         {
@@ -196,17 +211,6 @@ const sidebars: SidebarsConfig = {
                 'innovate/json-rpc-methods/methods/eth_sign',
               ]
             }
-          ],
-        },
-        {
-          collapsible: true,
-          collapsed: false,
-          type: 'category',
-          label: 'The Future of Helios',
-          items: [
-            'innovate/future-of-helios/long-term-vision',
-            'innovate/future-of-helios/interoperability-expansion',
-            'innovate/future-of-helios/ai-driven-blockchain',
           ],
         },
       ],
