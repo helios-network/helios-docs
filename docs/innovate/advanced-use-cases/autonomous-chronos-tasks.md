@@ -6,7 +6,30 @@ This documentation explains how Helios users can schedule, update, and manage re
 
 ## How It Works
 
-Scheduled tasks allow automated execution of smart contract functions at defined intervals. Users create tasks by depositing funds, which cover ongoing transaction execution costs.
+Scheduled tasks allow automated execution of smart contract functions at defined intervals.
+Users create tasks by depositing funds, which cover ongoing transaction execution costs.
+
+## What is a Cron Wallet?
+
+Each cron job created on-chain has a dedicated blockchain address called a cron wallet, which functions as an alias address linked to your primary wallet.
+
+### Creating a Cron Wallet
+
+A cron wallet is automatically created when you schedule a cron task.
+
+It is tied directly to your main wallet as an alias address.
+
+### Funding the Cron Wallet
+
+Funds must be deposited to the cron wallet upon creation to cover ongoing gas fees (100 gas per block). You can add additional funds at any time by sending cryptocurrency directly to the cron wallet address.
+
+### Checking Cron Wallet Balance
+
+Monitor your cron wallet balance directly via the helios [Blockchain Explorer](https://explorer.helioschainlabs.org):
+
+- Enter the unique cron wallet address in the explorer's search field.
+- View current balances, transaction history, and other wallet-related information.
+- Alternatively, use the RPC endpoints or your wallet’s explorer to track balances.
 
 ## Key Features
 
