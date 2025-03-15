@@ -104,7 +104,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/helios-network',
+          href: 'https://helios-network.github.io/HIP',
           label: 'Helios Improvement Proposals (HIPs)',
           position: 'right'
         }
