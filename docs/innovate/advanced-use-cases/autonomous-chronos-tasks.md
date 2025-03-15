@@ -1,8 +1,12 @@
-# Autonomous Chronos Module Technical Documentation
+# Chronos On-Chain Scheduled Tasks
 
 ## Overview
 
-The **Chronos Module** allows developers to schedule and manage periodic tasks (cron jobs) directly on the Helios blockchain, using an integrated precompile. It simplifies automation tasks such as periodic function calls to smart contracts.
+This documentation explains how Helios users can schedule, update, and manage recurring tasks directly on-chain using simple JavaScript and Ethers.js. Scheduled tasks automate the execution of functions on smart contracts at regular intervals.
+
+## How It Works
+
+Scheduled tasks allow automated execution of smart contract functions at defined intervals. Users create tasks by depositing funds, which cover ongoing transaction execution costs.
 
 ## Key Features
 
@@ -30,96 +34,106 @@ The **Chronos Module** allows developers to schedule and manage periodic tasks (
 - ABI file ([abi.json](https://github.com/helios-network/helios-core/blob/main/helios-chain/precompiles/chronos/abi.json) provided)
 - Deployed Cron precompile at address `0x0000000000000000000000000000000000000830`
 
-### Creating a Cron
+## Scheduling a Task
+
+Here's how you schedule a recurring smart contract method execution:
 
 ```javascript
-const ethers = require('ethers');
-const fs = require('fs');
-
-const chronosAbi = JSON.parse(fs.readFileSync('./abi.json').toString()).abi;
 const wallet = new ethers.Wallet(PRIVATE_KEY, provider);
-const contract = new ethers.Contract('0x0000000000000000000000000000000000000830', chronosAbi, wallet);
+const cronContract = new ethers.Contract(cronAddress, cronABI, wallet);
 
-async function createCron() {
-  const tx = await contract.createCron(
-    CONTRACT_ADDRESS, // target contract Address where the cron will interact
-    ABI_STRING, // abi of target contract
-    "increment", // methodName
-    [], // string[] params
-    1, // frequency
-    0, // expirationBlock
+async function scheduleTask() {
+  const tx = await cronContract.createCron(
+    targetContractAddress,
+    JSON.stringify(targetContractABI),
+    "functionNameToCall",
+    [/* params if any */],
+    1, // Frequency in blocks
+    0, // Expiration block (0 means no expiration)
     400000, // gasLimit
-    ethers.utils.parseUnits("20", "gwei"), // maxGasPrice
-    ethers.utils.parseEther("10") // amountToDeposit
+    ethers.utils.parseUnits("2", "gwei"), // maxGasPrice
+    ethers.utils.parseEther("1") // amount to deposit (1 HLS)
   );
 
-  const receipt = await tx.wait();
-  console.log('Cron Created, Tx Hash:', receipt.transactionHash);
+  await tx.wait();
+  console.log("Scheduled task created, transaction hash:", tx.hash);
 }
 
-createCron().catch(console.error);
+scheduleTask().catch(console.error);
 ```
 
-### Updating a Cron
+## Updating a Scheduled Task
+
+Update an existing scheduled task:
 
 ```js
-await contract.updateCron(cronId, newFrequency, newParams, newExpirationBlock, newGasLimit, newMaxGasPrice);
-```
-
-### Canceling a Cron
-
-```js
-await contract.cancelCron(cronId);
-```
-
-### Monitoring Events
-
-```js
-contract.on('CronCreated', (from, to, cronId) => {
-  console.log(`Cron Created: ${cronId}, from: ${from}, to: ${to}`);
-});
-
-contract.on('CronModified', (from, to, cronId, success) => {
-  console.log(`Cron Modified: ${cronId}, success: ${success}`);
-});
-
-contract.on('CronCancelled', (from, to, cronId, success) => {
-  console.log(`Cron Cancelled: ${cronId}, success: ${success}`);
-});
-```
-
-### Cancelling a Cron
-
-```js
-async function cancelCron(cronId) {
-  const tx = await contract.cancelCron(cronId);
-  const receipt = await tx.wait();
-  console.log('Cron Cancelled, Tx Hash:', receipt.transactionHash);
+async function updateTask(cronId, newFrequency, newParams, newExpirationBlock, newGasLimit, newMaxGasPrice) {
+  const tx = await cronContract.updateCron(cronId, newFrequency, newParams, newExpirationBlock, newGasLimit, newMaxGasPrice);
+  await tx.wait();
+  console.log("Scheduled task updated:", tx.hash);
 }
-
-cancelCron(CRON_ID).catch(console.error);
 ```
 
-## RPC Endpoints
+## Canceling a Scheduled Task
 
-RPC endpoints are provided to facilitate cron lifecycle management:
+Cancel a scheduled task:
 
-- `eth_getCron`
-- `eth_getCronByAddress`
-- `eth_getAccountCronsByPageAndSize`
-- `eth_getCronTransactionByNonce`
-- `eth_getCronTransactionByHash`
-- `eth_getCronTransactionReceiptByNonce`
-- `eth_getCronTransactionReceiptByHash`
-- `eth_getCronTransactionReceiptsByPageAndSize`
-- `eth_getCronTransactionsByPageAndSize`
+```javascript
+async function cancelTask(cronId) {
+  const tx = await cronContract.cancelCron(cronId);
+  await tx.wait();
+  console.log("Scheduled task canceled:", tx.hash);
+}
+```
 
-- `eth_getCronsByPageAndSize`
-- `eth_getAllCronTransactionReceiptsByPageAndSize`
-- `eth_getAllCronTransactionsByPageAndSize`
-- `eth_getBlockCronLogs`
+## Monitoring Scheduled Task Events
 
-These endpoints are available via Postman at [Helios Workspace](https://www.postman.com/lunar-module-architect-57036170/workspace/helios-workspace).
+Monitor task events easily:
+
+```javascript
+cronContract.on('CronCreated', (from, to, cronId) => {
+  console.log(`Task created with ID: ${cronId}`);
+});
+
+cronContract.on('CronModified', (from, to, cronId, success) => {
+  console.log(`Task modified with ID: ${cronId}, Success: ${success}`);
+});
+
+cronContract.on('CronCancelled', (from, to, cronId, success) => {
+  console.log(`Task cancelled with ID: ${cronId}, Success: ${success}`);
+});
+```
+
+## Gas and Transaction Costs Explained
+
+- **Gas Cost per Block**: Each scheduled task consumes a fixed amount of 100 gas per block to stay active. You deposit funds upfront when scheduling the task.
+- **Transaction Fees**: Scheduled task executions use a dedicated wallet address to pay execution costs. This address acts like an alias linked to your main wallet.
+- **EVM Execution Costs**: Any smart contract state changes triggered by scheduled tasks directly affect the balance of your primary wallet.
+
+---
+
+# Technical Details (Advanced Users)
+
+## Technical Implementation Details
+
+- Each cron task has a unique blockchain address, effectively an alias of the owner's primary wallet.
+- Cron tasks are automatically canceled and removed from storage when their balance reaches zero or when critical errors occur. Remaining funds return to the task owner.
+- Dedicated RPC endpoints are available to manage and query cron tasks:
+  - `eth_getCron`
+  - `eth_getCronByAddress`
+  - `eth_getAccountCronsByPageAndSize`
+  - `eth_getCronTransactionByNonce`
+  - `eth_getCronTransactionByHash`
+  - `eth_getCronTransactionReceiptByNonce`
+  - `eth_getCronTransactionReceiptByHash`
+  - `eth_getCronTransactionReceiptsByPageAndSize`
+  - `eth_getCronTransactionsByPageAndSize`
+  - `eth_getCronsByPageAndSize`
+  - `eth_getAllCronTransactionReceiptsByPageAndSize`
+  - `eth_getAllCronTransactionsByPageAndSize`
+  - `eth_getBlockCronLogs`
+
+These endpoints can be accessed and tested using Postman at [Helios Workspace](https://www.postman.com/lunar-module-architect-57036170/workspace/helios-workspace).
 
 ## Gas Management Explanation
 
@@ -137,5 +151,4 @@ When creating a cron job, you must deposit funds to cover gas consumption at a r
 
 - ABI Reference available at: [abi.json](https://github.com/helios-network/helios-core/blob/main/helios-chain/precompiles/chronos/abi.json)
 - Detailed RPC endpoint documentation in our public [Postman workspace](https://www.postman.com/lunar-module-architect-57036170/workspace/helios-workspace).
-- JavaScript examples and scripts are available at: `helios-core/heliades-scripts/index.js`[helios-core/heliades-scripts/index.js](https://github.com/helios-network/helios-core/blob/main/heliades-scripts/index.js).
-
+- JavaScript examples and scripts are available at: [helios-core/heliades-scripts/index.js](https://github.com/helios-network/helios-core/blob/main/heliades-scripts/index.js).
