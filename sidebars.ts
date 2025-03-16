@@ -80,6 +80,7 @@ const sidebars: SidebarsConfig = {
           label: "Staking & Governance",
           items: [
             "build/staking-governance/staking-mechanics",
+            "build/staking-governance/boosted-delegation",
             "build/staking-governance/becoming-validator",
             "build/staking-governance/governance-proposals",
             "build/staking-governance/rewards-penalties",
