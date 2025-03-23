@@ -126,6 +126,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'innovate/advanced-use-cases/ai-and-llm',
             'innovate/advanced-use-cases/autonomous-chronos-tasks',
+            'innovate/advanced-use-cases/hyperion-external-chain-data',
             'innovate/advanced-use-cases/on-chain-etfs',
             'innovate/advanced-use-cases/oracle-defi-products',
           ],
