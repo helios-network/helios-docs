@@ -22,9 +22,8 @@
 
 Validators can lock a certain amount of HELIOS tokens as collateral to provide boosted rewards to their delegators. This HELIOS collateral is:
 
-1. **Tracked On-Chain**: Once locked, the amount is recorded in the staking module or a specialized module.  
-2. **Not Slashed**: Because it does not count toward consensus security, locked HELIOS is not slashed if the validator misbehaves. However, it often requires an unbonding period for withdrawal.  
-3. **Proportional to Delegator Benefits**: The more HELIOS a validator locks relative to its total delegated stake, the higher the potential boost it can provide.
+1. **Not Slashed**: Because it does not count toward consensus security, locked HELIOS is not slashed if the validator misbehaves. However, it often requires an unbonding period for withdrawal.  
+1. **Proportional to Delegator Benefits**: The more HELIOS a validator locks relative to its total delegated stake, the higher the potential boost it can provide.
 
 ### Delegator’s Boost Eligibility
 

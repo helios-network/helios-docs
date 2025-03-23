@@ -122,22 +122,8 @@ Helios provides a user-friendly web interface for node management called Helios 
 
 ## 4. Helios Boost for Validators
 
-### Increasing APY for Delegators
-Validators can lock HELIOS tokens to increase APY rewards for their delegators.
-
-- The closer the locked HELIOS amount is to the total delegated assets, the higher the APY boost.
-- Validators with the highest HELIOS collateral appear first in Helios Gate, attracting more delegators.
-- If HELIOS collateral is insufficient, the boost decreases, decentralizing delegation across multiple validators.
-
-### Minimum HELIOS Requirement for Delegators
-Validators can require delegators to stake a minimum amount of HELIOS to participate.
-
-Example:
-```sh
-heliades tx staking set-minimum-stake --amount 50000helios --from my-validator
-```
-
-This encourages large holders to commit HELIOS tokens long-term, strengthening network security.
+The **Delegation Boost** feature allows validators to lock HELIOS tokens and potentially increase APY for their delegators. For a complete explanation of how it works, please visit the dedicated page:  
+[**Boosted Delegation and Rewards**](../staking-governance/boosted-delegation.md)
 
 ---
 
