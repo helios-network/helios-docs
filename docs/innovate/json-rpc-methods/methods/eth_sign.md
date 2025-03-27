@@ -13,11 +13,11 @@ Signs a message with the private key of a given account.
 
 ## Example
 
-Replace `https://dataseed-testnet.helioschain.network` with your node RPC URL.
+Replace `https://testnet1.helioschainlabs.org` with your node RPC URL.
 
 ## Request curl
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "eth_sign", "params": ["0x9cE564c7d09f88E7d8233Cdd3A4d7AC42aBFf3aC", "0xdeadbeef"], "id": 1}'

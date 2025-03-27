@@ -19,11 +19,11 @@ Returns historical gas information, allowing you to track trends over time.
 
 ## Example
 
-Replace https://dataseed-testnet.helioschain.network with your node rpc url.
+Replace https://testnet1.helioschainlabs.org with your node rpc url.
 
 ## Request curl
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"id": 1, "jsonrpc": "2.0", "method": "eth_feeHistory", "params": ["0x5", "latest", [20,30]] }'

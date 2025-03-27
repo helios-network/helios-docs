@@ -23,9 +23,6 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -37,9 +34,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-       
           remarkPlugins: [require('remark-math')],
           rehypePlugins: [require('rehype-katex')],
         },
@@ -51,10 +45,6 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
- 
-          // Useful options to enforce articlesging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -67,10 +57,18 @@ const config: Config = {
   ],
 
   themeConfig: {
+    algolia: {
+      appId: 'IU9TP7H66Z',
+      apiKey: '8523169bbcd386a82283474e47386dba',
+      indexName: 'hub-helioschain',
+
+      // Optional parameters:
+      insights: true, // Enables click analytics
+    },
     colorMode: {
       defaultMode: "light",
-      disableSwitch: true, // Prevents users from toggling dark mode
-      respectPrefersColorScheme: false, // Ignores user OS dark mode settings
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: 'Helios Hub',
@@ -98,6 +96,10 @@ const config: Config = {
           label: 'Innovate',
         },
         {to: '/articles', label: 'Articles', position: 'left'},
+        {
+          type: 'search',
+          position: 'right',
+        },
         {
           href: 'https://github.com/helios-network',
           label: 'GitHub',
@@ -133,7 +135,6 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-
             {
               label: 'Discord',
               href: 'https://discordapp.com/invite/heliosnetwork',
@@ -165,6 +166,18 @@ const config: Config = {
       darkTheme: prismThemes.duotoneDark,
     },
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    // [
+    //   require.resolve('@cmfcmf/docusaurus-search-local'),
+    //   {
+    //     indexDocs: true,
+    //     indexBlog: true,
+    //     language: ['en'],
+    //   },
+    // ],
+  ],
+  
 };
 
 export default config;

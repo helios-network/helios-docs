@@ -51,7 +51,7 @@ function HomepageHeader() {
 
           <Link style={{ margin: "5px" }}
             className="button button--secondary button--lg"
-            to="/">
+            to="https://discord.com/invite/AjpJnJxt5e">
             Join the Helios Community
           </Link>
 

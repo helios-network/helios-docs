@@ -9,6 +9,23 @@ Helios provides a robust EVM-compatible and Cosmos SDK-based environment for dev
 - **Built-in Governance & Reputation System** – Smart contract execution can be influenced by on-chain governance and validator reputation.
 - **Optimized Staking & Economic Model** – dApps can integrate weighted staking models, benefiting from multi-asset security.
 
+### Accessing the Helios Testnet
+
+Helios Testnet provides developers with full access to RPC and gRPC endpoints for testing and integrating their dApps. **Swagger UI** is available for both endpoints, offering an interactive interface to explore and test available API methods.
+
+- **EVM-Compatible JSON-RPC (Port 8545)**  
+  [https://testnet1.helioschainlabs.org/docs](https://testnet1.helioschainlabs.org/docs)  
+  This endpoint exposes Ethereum-style JSON-RPC methods (port 8545) for interacting with the EVM layer. Developers can use it to deploy and test smart contracts with familiar tools like **Web3.js**, **Ethers.js**, or **Hardhat**.
+
+- **Cosmos gRPC Gateway (Port 1317)**  
+  [https://testnet1-grpc.helioschainlabs.org/docs](https://testnet1-grpc.helioschainlabs.org/docs)  
+  This endpoint provides access to Cosmos SDK modules via the REST API (gRPC-gateway, typically on port 1317). It supports interactions with **governance**, **staking**, **accounts**, and **interchain modules** built into the Cosmos layer.
+
+> **What is Swagger UI?**  
+> Swagger is a web-based interface that allows developers to visualize and interact with the API’s endpoints. It provides live documentation and enables test calls directly from the browser, making it easier to understand request/response structures.
+
+
+
 ## Helios Development Environment Setup
 
 ### 1. Install Required Dependencies
@@ -38,7 +55,7 @@ Before deploying smart contracts or interacting with Helios APIs, connect to the
 const { ethers } = require("ethers");
 
 // Connect to Helios Testnet RPC
-const provider = new ethers.JsonRpcProvider("https://dataseed-testnet.helioschain.network");
+const provider = new ethers.JsonRpcProvider("https://testnet1.helioschainlabs.org");
 
 // Load Wallet (Using Private Key)
 const wallet = new ethers.Wallet("YOUR_PRIVATE_KEY", provider);
@@ -54,7 +71,7 @@ const { createWallet, signAndBroadcastTx } = require("@helios-chain-labs/helios-
 const LOCALNET_CHAIN = {
   chainId: 4141,
   cosmosChainId: '4141',
-  rpcEndpoint: 'https://dataseed-testnet.helioschain.network',
+  rpcEndpoint: 'https://testnet1.helioschainlabs.org',
   bech32Prefix: 'helios',
   currency: {
     coinDenom: 'HELIOS',
@@ -107,7 +124,7 @@ module.exports = {
   solidity: "0.8.20",
   networks: {
     heliosTestnet: {
-      url: "https://dataseed-testnet.helioschain.network",
+      url: "https://testnet1.helioschainlabs.org",
       accounts: ["YOUR_PRIVATE_KEY"],
     },
   },

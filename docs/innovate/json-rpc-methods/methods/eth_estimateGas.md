@@ -35,11 +35,11 @@ If this call causes the EVM to execute a REVERT operation, an error response of 
 
 ## Example
 
-Replace https://dataseed-testnet.helioschain.network with your node rpc url.
+Replace https://testnet1.helioschainlabs.org with your node rpc url.
 
 ## Request curl
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "eth_estimateGas", "params": [{"from": "0x9cE564c7d09f88E7d8233Cdd3A4d7AC42aBFf3aC", "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567", "value": "0x9184e72a"}], "id": 1}'

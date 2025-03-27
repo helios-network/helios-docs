@@ -13,11 +13,11 @@ Returns delegation details for a given address and validator.
 
 ## Example
 
-Replace `https://dataseed-testnet.helioschain.network` with your node RPC URL.
+Replace `https://testnet1.helioschainlabs.org` with your node RPC URL.
 
 ## Request curl
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "eth_getDelegation", "params": ["0x17267eB1FEC301848d4B5140eDDCFC48945427Ab", "0x17267eB1FEC301848d4B5140eDDCFC48945427Ab"], "id": 1}'

@@ -10,9 +10,9 @@ Ensure you have a private node or a dedicated node running on Helios network.
 
 ## [Option 1] With curl
 
-Run the following command in your terminal, replacing https://dataseed-testnet.helioschain.network with your node rpc url:
+Run the following command in your terminal, replacing https://testnet1.helioschainlabs.org with your node rpc url:
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "eth_chainId", "params": [], "id": 1}'
@@ -32,11 +32,11 @@ npm i node-fetch
 
 2. Create your JavaScript file and copy the following code:
 
-Replace https://dataseed-testnet.helioschain.network with your node rpc url:
+Replace https://testnet1.helioschainlabs.org with your node rpc url:
 ```js
 const fetch = require("node-fetch");
 
-fetch("https://dataseed-testnet.helioschain.network", {
+fetch("https://testnet1.helioschainlabs.org", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -73,12 +73,12 @@ npm install ethers
 
 2. Create your JavaScript file and copy the following code:
 
-Replace https://dataseed-testnet.helioschain.network with your node rpc url:
+Replace https://testnet1.helioschainlabs.org with your node rpc url:
 ```js
 const ethers = require("ethers")
 
 const provider = new ethers.providers.JsonRpcProvider(
-  "https://dataseed-testnet.helioschain.network"
+  "https://testnet1.helioschainlabs.org"
 )
 
 provider
@@ -103,10 +103,10 @@ node index.js
 
 2. Create your JavaScript file and copy the following code:
 
-Replace https://dataseed-testnet.helioschain.network with your node rpc url:
+Replace https://testnet1.helioschainlabs.org with your node rpc url:
 ```js
 var { Web3 } = require("web3")
-var provider = "https://dataseed-testnet.helioschain.network"
+var provider = "https://testnet1.helioschainlabs.org"
 var web3Provider = new Web3.providers.HttpProvider(provider)
 var web3 = new Web3(web3Provider)
 
@@ -131,12 +131,12 @@ pip install requests
 
 2. Create your Python file and copy the following code:
 
-Replace https://dataseed-testnet.helioschain.network with your node rpc url:
+Replace https://testnet1.helioschainlabs.org with your node rpc url:
 ```js
 import requests
 import json
 
-url = "https://dataseed-testnet.helioschain.network"
+url = "https://testnet1.helioschainlabs.org"
 
 payload = {
   "jsonrpc": "2.0",

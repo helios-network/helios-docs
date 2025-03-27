@@ -23,11 +23,11 @@ Returns the account and storage values, including the Merkle proof, of the speci
 
 ## Example
 
-Replace `https://dataseed-testnet.helioschain.network` with your node RPC URL.
+Replace `https://testnet1.helioschainlabs.org` with your node RPC URL.
 
 ## Request curl
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "eth_getProof", "id": 1, "params": ["0x7F0d15C7FAae65896648C8273B6d7E43f58Fa842", ["0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"], "latest"]}'

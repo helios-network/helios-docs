@@ -12,11 +12,11 @@ Returns the number of transactions in a block given its number.
 
 ## Example
 
-Replace `https://dataseed-testnet.helioschain.network` with your node RPC URL.
+Replace `https://testnet1.helioschainlabs.org` with your node RPC URL.
 
 ## Request curl
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "eth_getBlockTransactionCountByNumber", "params": ["latest"], "id": 1}'

@@ -31,6 +31,6 @@ Whether you are a developer, a validator, or someone exploring the potential of 
 ---
 
 🔗 Next Steps:
-- [Explore the Helios Ecosystem](#)
-- [Read the Technical Whitepaper](#)
-- [Join the Helios Community](#)
+- [Explore the Helios Ecosystem](https://portal.helioschain.network)
+- [Read the Technical Whitepaper](https://cdn.helioschain.network/Helios_An_Interchain_Paradigm_of_Reputation_Based_Cross_Chain_Consensus.pdf)
+- [Join the Helios Community](https://discord.com/invite/AjpJnJxt5e)

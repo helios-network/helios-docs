@@ -12,14 +12,14 @@ Helios is fully EVM-compatible, exposing standard Ethereum JSON-RPC endpoints. T
 
 ### Available Endpoints
 - Mainnet: `https://dataseed.helioschain.network`
-- Testnet: `https://dataseed-testnet.helioschain.network`
+- Testnet: `https://testnet1.helioschainlabs.org`
 
 ### Example: Querying Balance with ethers.js
 
 ```js
 const { ethers } = require("ethers");
 // Connect to Helios RPC
-const provider = new ethers.JsonRpcProvider("https://dataseed-testnet.helioschain.network");
+const provider = new ethers.JsonRpcProvider("https://testnet1.helioschainlabs.org");
 async function getBalance(address) {
     const balance = await provider.getBalance(address);
     console.log(`Balance: ${ethers.formatEther(balance)} HELIOS`);
@@ -105,7 +105,7 @@ const { ethers } = require("ethers");
 const { createWallet } = require("@helios-chain-labs/helios-ts-wallet");
 async function crossChainInteraction() {
     // EVM interaction
-    const evmProvider = new ethers.JsonRpcProvider("https://dataseed-testnet.helioschain.network");
+    const evmProvider = new ethers.JsonRpcProvider("https://testnet1.helioschainlabs.org");
     const evmBalance = await evmProvider.getBalance(address);
     // Cosmos interaction
     const cosmosWallet = await createWallet();

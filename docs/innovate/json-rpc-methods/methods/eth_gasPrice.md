@@ -12,11 +12,11 @@ A hexadecimal equivalent of an integer representing the current gas price in wei
 
 ## Example
 
-Replace https://dataseed-testnet.helioschain.network with your node rpc url.
+Replace https://testnet1.helioschainlabs.org with your node rpc url.
 
 ## Request curl
 ```sh
-curl https://dataseed-testnet.helioschain.network \
+curl https://testnet1.helioschainlabs.org \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "eth_gasPrice", "params": [], "id": 1}'
