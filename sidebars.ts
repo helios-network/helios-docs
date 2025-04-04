@@ -116,6 +116,7 @@ const sidebars: SidebarsConfig = {
             'innovate/building-with-helios/developing-dapps',
             'innovate/building-with-helios/evm-and-cosmos-apis',
             'innovate/building-with-helios/smart-contracts',
+            'innovate/building-with-helios/revenue-hooks',
           ],
         },
         {

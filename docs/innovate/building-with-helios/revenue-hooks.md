@@ -97,7 +97,7 @@ provider.on('block', async (blockNumber) => {
 
 ## Testing the Features
 
-For detailed testing instructions and scripts, refer to the [Testing Guide](./README.md) which includes:
+For detailed testing instructions and scripts, refer to the [Testing Guide](https://github.com/helios-network/helios-core/tree/main/heliades-scripts/fee-distribution) which includes:
 
 1. Automatic Registration Testing:
    - Deploy contract using provided scripts
@@ -140,6 +140,5 @@ For detailed testing instructions and scripts, refer to the [Testing Guide](./RE
 
 ## Additional Resources
 
-- [Revenue Module API Documentation](https://docs.helios.network/modules/revenue)
 - [Smart Contract Examples](https://github.com/helios-network/helios-core/tree/main/contracts)
 - [Testing Scripts](https://github.com/helios-network/helios-core/tree/main/heliades-scripts/fee-distribution) 

@@ -53,7 +53,7 @@ const links = [
   {
     label: "Join the Helios Community",
     to: "https://discord.com/invite/AjpJnJxt5e",
-    description: "Please join the Helios Network Community.",
+    description: "Join our Discord server to discuss and ask questions with builders around the Helios ecosystem.",
     icon: <FaUsers />,
   },
 ];
