@@ -49,7 +49,7 @@ Users can explore and interact with Helios-based dApps through the [Helios Porta
 ## Explorer and Monitoring Tools
 
 To track transactions and network activity, Helios offers:
-- **[Helios Explorer](https://explorer.helioschain.network)** – A blockchain explorer for viewing transactions, blocks, and validator activity.
+- **[Helios Explorer](https://explorer.helioschainlabs.org)** – A blockchain explorer for viewing transactions, blocks, and validator activity.
 - **Staking Analytics** – A tool to monitor validator performance and rewards.
 - **Governance Dashboard** – A view of active and past proposals, available within the [Helios Portal](https://portal.helioschain.network).
 

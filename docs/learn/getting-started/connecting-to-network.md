@@ -7,7 +7,7 @@ To interact with Helios, you need to connect your wallet using **RPC settings**.
 | Network  | Chain ID | RPC URL | Block Explorer |
 |----------|---------|---------|----------------|
 | **Helios Testnet** | 4141 | https://testnet1.helioschainlabs.org  | https://explorer-testnet.helioschain.network |
-| **Helios Mainnet** | 4242 | https://dataseed.helioschain.network | https://explorer.helioschain.network |
+| **Helios Mainnet** | 4242 | https://dataseed.helioschain.network | https://explorer.helioschainlabs.org |
 
 *Testnet and mainnet details will be updated once live.*
 
@@ -29,6 +29,6 @@ Helios supports **Cosmos-compatible wallets**, but Cosmos interactions are optio
 ## Checking Connection
 Once you've added the Helios network:
 - Try sending a small transaction to verify connectivity.
-- Check your wallet balance using the [Helios Explorer](https://explorer.helioschain.network).
+- Check your wallet balance using the [Helios Explorer](https://explorer.helioschainlabs.org).
 
 If you experience issues, refer to the **troubleshooting guide**.

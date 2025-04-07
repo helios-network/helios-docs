@@ -87,7 +87,7 @@ await bridgeContract.initiateTransfer(
 
 Helios provides real-time tracking of cross-chain transactions via:
 
-- Helios Explorer ([explorer.helioschain.network](https://explorer.helioschain.network))
+- Helios Explorer ([explorer.helioschain.network](https://explorer.helioschainlabs.org))
 - Transaction in Helios Portal or more in the Explorer
 - CLI Command:
   ```sh
@@ -104,7 +104,7 @@ To enhance security, users should follow these best practices:
   - Validators with high reputation scores offer safer cross-chain services.
 
 - Monitor Transactions in Real-Time  
-  - Use [Helios Explorer](https://explorer.helioschain.network) to track cross-chain transfers.
+  - Use [Helios Explorer](https://explorer.helioschainlabs.org) to track cross-chain transfers.
 
 - Enable Transaction Notifications  
   - Configure alerts in [Helios Portal](https://portal.helioschain.network) for bridge confirmations.

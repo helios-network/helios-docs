@@ -100,7 +100,7 @@ const txVote = createTxMsgVote(
 );
 ```
 
-💡 Testnet tokens can be requested from the official [Helios Faucet](https://faucet.helioschain.network).
+💡 Testnet tokens can be requested from the official [Helios Faucet](https://testnet.helioschain.network).
 
 ## Deploying Smart Contracts on Helios (EVM)
 
@@ -202,6 +202,6 @@ Helios enables developers to build scalable, multi-chain dApps by offering:
 🚀 **Ready to Build?**
 Start developing today with **Helios Testnet** and **Helios SDK**!
 
-📌 **Helios Testnet Faucet**: [faucet.helioschain.network](https://faucet.helioschain.network)
+📌 **Helios Testnet Faucet**: [faucet.helioschain.network](https://testnet.helioschain.network)
 
-📌 **Helios Explorer**: [explorer.helioschain.network](https://explorer.helioschain.network)
+📌 **Helios Explorer**: [explorer.helioschain.network](https://explorer.helioschainlabs.org)
