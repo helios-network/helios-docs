@@ -95,6 +95,12 @@ const config: Config = {
           position: 'left',
           label: 'Innovate',
         },
+        {
+          type: 'docSidebar',
+          sidebarId: 'testnetSidebar',
+          position: 'left',
+          label: 'Testnet',
+        },
         {to: '/articles', label: 'Articles', position: 'left'},
         {
           type: 'search',
@@ -130,6 +136,10 @@ const config: Config = {
               label: 'Innovate',
               to: '/docs/innovate/building-with-helios/developing-dapps',
             },
+            {
+              label: 'Testnet',
+              to: '/docs/testnet',
+            },
           ],
         },
         {
@@ -137,11 +147,11 @@ const config: Config = {
           items: [
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/heliosnetwork',
+              href: 'https://discord.gg/AjpJnJxt5e',
             },
             {
               label: 'Telegram',
-              href: 'https://discordapp.com/invite/heliosnetwork',
+              href: 'https://t.me/heliosblock',
             },
           ],
         },

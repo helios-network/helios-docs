@@ -220,6 +220,23 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+   // ✅ New Testnet Sidebar
+   testnetSidebar: [
+    {
+      type: 'category',
+      label: 'Helios Testnet',
+      collapsible: true,
+      collapsed: false,
+      items: [
+        'testnet/index',                  // Welcome page
+        'testnet/getting-started',        // Onboarding guide
+        'testnet/xp-system',              // XP + referrals + tags
+        'testnet/quests-and-badges',      // Missions, badges, rewards
+        'testnet/dashboard',              // UI elements & leaderboard
+        'testnet/faq',                    // Common questions
+      ],
+    },
+  ]
 };
 
 export default sidebars;
