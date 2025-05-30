@@ -22,6 +22,7 @@
   --ifm-font-weight-semibold: 600;
   --ifm-font-weight-medium: 500;
   --ifm-font-weight-normal: 400;
+  --ifm-global-spacing: 1.5rem;
 
   --ifm-color-primary: #002dcb; /* Helios Sky Blue */
   --ifm-color-primary-dark: #002dcb; /* Deeper Blue */
