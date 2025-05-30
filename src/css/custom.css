@@ -4,33 +4,67 @@
  * work well for content-centric websites.
  */
 
+@font-face {
+  font-family: "Satoshi";
+  src: url("../../static/fonts/satoshi/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-display: swap;
+  font-style: normal;
+}
+
 /* You can override the default Infima variables here. */
 /* Helios Theme Colors */
 :root {
-  --ifm-color-primary: #0066cc; /* Helios Sky Blue */
-  --ifm-color-primary-dark: #0066cc; /* Deeper Blue */
-  --ifm-color-primary-darker: #005bb5; /* Slightly Darker */
-  --ifm-color-primary-darkest: #004599; /* Deepest Blue */
-  --ifm-color-primary-light: #3399ff; /* Lighter Sky Blue */
-  --ifm-color-primary-lighter: #66b3ff; /* Even Lighter */
-  --ifm-color-primary-lightest: #99ccff; /* Softest Blue */
+  /* Font Settings */
+  --ifm-font-family-base: "Satoshi", system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-font-weight-bold: 700;
+  --ifm-font-weight-semibold: 600;
+  --ifm-font-weight-medium: 500;
+  --ifm-font-weight-normal: 400;
+
+  --ifm-color-primary: #002dcb; /* Helios Sky Blue */
+  --ifm-color-primary-dark: #002dcb; /* Deeper Blue */
+  --ifm-color-primary-darker: #002dcb; /* Slightly Darker */
+  --ifm-color-primary-darkest: #002dcb; /* Deepest Blue */
+  --ifm-color-primary-light: #002dcb; /* Lighter Sky Blue */
+  --ifm-color-primary-lighter: #002dcb; /* Even Lighter */
+  --ifm-color-primary-lightest: #002dcb; /* Softest Blue */
+
+  --ifm-color-emphasis-300: #8690a935;
+  --ifm-color-emphasis-500: #8690a935;
+  --ifm-color-emphasis-700: #8690a9;
 
   /* Code Block & Highlight Settings */
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 123, 255, 0.1);
-  --ifm-color-text: #222831; /* Dark text for contrast */
-  --ifm-heading-color: #222831; /* Dark text for contrast */
-  --ifm-font-color-base-inverse: #222831;
+  --ifm-color-text: #000b3c; /* Dark text for contrast */
+  --ifm-heading-color: #000b3c; /* Dark text for contrast */
+  --ifm-font-color-base-inverse: #000b3c;
+  --ifm-navbar-link-color: #000b3c;
+  --ifm-color-content: #8690a9;
+  --ifm-toc-link-color: #8690a9;
+  --ifm-color-content-secondary: #8690a9;
 
+  --ifm-navbar-link-active-color: #000b3c;
+  --ifm-navbar-link-hover-color: #002dcb;
 
-  --ifm-navbar-link-active-color: #222831;
-  --ifm-navbar-link-hover-color: #0b61d9;
+  --ifm-background-color: #f2f6fe;
+  --ifm-hero-background-color: #f2f6fe;
+  --ifm-pre-background: #fafbff;
+
+  --radius: calc(24px + 4 * (100vw - 320px) / 1080);
+  --ifm-code-border-radius: var(--radius);
+  --ifm-pagination-nav-border-radius: calc(var(--radius) / 1.5);
+  --ifm-global-radius: calc(var(--radius) / 1.5);
+  --ifm-breadcrumb-item-background-active: #000b3c10;
+  --ifm-menu-color-background-active: #000b3c10;
+  --ifm-table-head-background: #8690a905;
 }
 
 .katex-html {
   display: none !important;
 }
-
 
 /* .katex-mathml {
   margin-bottom:5px;
@@ -52,9 +86,8 @@
   margin-top: 10px;
 }
 
-
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -64,4 +97,105 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-heading-color: #2a62b1;
+}
+
+/* Adding */
+
+body {
+  font-feature-settings: "salt" on;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
+*::selection {
+  background-color: #002dcb90;
+  color: #fafbff;
+  -webkit-text-fill-color: #fafbff;
+}
+
+*::-moz-selection {
+  background-color: #002dcb90;
+  color: #fafbff;
+  -webkit-text-fill-color: #fafbff;
+}
+
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+}
+
+pre {
+  background-color: #fff !important;
+}
+
+code {
+  --ifm-code-padding-horizontal: 0.25em;
+  --ifm-code-border-radius: 0.5em;
+  background-color: #fafbff;
+  border-color: #8690a935;
+}
+
+nav,
+table {
+  color: var(--ifm-color-text);
+}
+
+.table-of-contents {
+  font-weight: 500;
+}
+
+.navbar {
+  background: linear-gradient(to bottom, #fff, #f2f6fe);
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.075), 0 0 0 1px rgba(0, 0, 0, 0.025);
+}
+
+.menu__link {
+  border-radius: var(--radius) !important;
+}
+
+@media screen and (min-width: 998px) {
+  .navbar {
+    backdrop-filter: blur(16px);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.25), #fff);
+  }
+
+  .menu__link {
+    border-radius: var(--radius) 0 0 var(--radius) !important;
+  }
+}
+
+.footer {
+  background: linear-gradient(to bottom, #e6ecfc, #f2f6fe);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.footer__title {
+  color: var(--ifm-color-text);
+}
+
+.img_ev3q {
+  border-radius: var(--radius);
+  mix-blend-mode: multiply;
+}
+
+.hero .container {
+  padding: calc(24px + 4 * (100vw - 320px) / 1080) 0;
+}
+
+.hero__title {
+  text-align: center;
+}
+
+.hero__subtitle {
+  color: var(--ifm-color-content);
+  text-align: center;
+}
+
+.buttonGroup__atx button {
+  color: var(--ifm-color-primary) !important;
 }

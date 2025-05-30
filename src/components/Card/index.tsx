@@ -1,6 +1,6 @@
-import Link from "@docusaurus/Link";
-import Heading from "@theme/Heading";
-import styles from "./index.module.css";
+import Link from "@docusaurus/Link"
+import Heading from "@theme/Heading"
+import styles from "./index.module.css"
 
 export default function Card({ link }) {
   return (
@@ -11,5 +11,5 @@ export default function Card({ link }) {
       </Heading>
       <p className={styles.cardDescription}>{link.description}</p>
     </Link>
-  );
+  )
 }

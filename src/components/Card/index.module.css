@@ -1,10 +1,14 @@
 .card {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
+  background: linear-gradient(180deg, #f3f7fe, #fafbff);
+  border-radius: var(--radius);
+  padding: calc(24px + 4 * (100vw - 320px) / 1080);
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 150px -48px #181f2d20;
   transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card:hover {
@@ -15,17 +19,14 @@
 .icon {
   font-size: 40px;
   color: #002dcb;
-  margin-bottom: 10px;
 }
 
 .cardTitle {
   font-size: 20px;
-  margin-bottom: 10px;
   color: #040f34;
 }
 
 .cardDescription {
   font-size: 14px;
   color: #5c6584;
-  margin-bottom: 10px;
 }
