@@ -69,3 +69,20 @@ Join the Helios community and help build the future of decentralized networks!
 
 ---
 **Unite. Build. Innovate.** 🚀
+
+## Local Development
+
+To run the documentation site locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/helios-network/helios-docs.git
+
+# Navigate into the project directory
+cd helios-docs
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
