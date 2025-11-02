@@ -1,246 +1,141 @@
-# Configuring Your Node
+# Node Configuration Guide
 
-After installing and initializing your Helios node, it is crucial to configure it properly to optimize performance, security, and network stability.
+This guide explains how to configure your Helios node using the integrated management interface.  
+Through this section, you can manage logging options, pruning modes, RPC endpoints, backups, and key security.  
 
----
-
-## 1. Configuration Files Overview
-
-Helios stores configuration files in:
-
-```sh
-cd ~/.heliades/
-```
-
-### Main Configuration Files:
-- `config.toml` → Network settings (P2P, RPC, APIs).
-- `app.toml` → Application-specific settings (governance, staking, mempool).
-- `client.toml` → CLI client settings (keyring backend, gas fees).
-- `genesis.json` → Initial blockchain state.
-
-Each file plays a role in node operation and should be adjusted based on your setup.
+> ⚠️ **Important:** Always create and securely store a **Key Backup** as soon as possible. Losing your key means losing access to your validator permanently.
 
 ---
 
-## 2. Network Configuration (`config.toml`)
+## 1. Accessing the Configuration Interface
 
-Edit the main network settings:
+Go to the **Settings** tab from the sidebar of your Helios dashboard.
 
-```sh
-nano ~/.heliades/config/config.toml
-```
+![Settings Overview](./img/config-1.png)
 
-### Key Parameters to Adjust:
-
-#### P2P Network Configuration
-```toml
-persistent_peers = "NODE_ID@IP_ADDRESS:26656,NODE_ID@IP_ADDRESS:26656"
-```
-- Replace with **current peer list** from [Helios Peers](https://github.com/helios-network/networks).
-- Ensures node connectivity.
-
-#### Minimum Gas Price (Preventing Spam)
-```toml
-minimum-gas-prices = "0.1helios"
-```
-- Prevents spam transactions by requiring a minimum gas price.
-
-#### RPC Configuration
-```toml
-laddr = "tcp://0.0.0.0:26657"
-```
-- Exposes RPC API for blockchain queries.
-- **For private nodes, use:** `"tcp://127.0.0.1:26657"`.
-
-#### P2P Port
-```toml
-laddr = "tcp://0.0.0.0:26656"
-```
-- Used for **peer-to-peer networking**.
+From here, you can manage:
+- **Logging and debug options**  
+- **Node storage mode (Archive, Light, etc.)**  
+- **Automatic backup system**  
+- **RPC endpoint configuration**  
+- **Key and validator backups**
 
 ---
 
-## 3. Application-Specific Configuration (`app.toml`)
+## 2. Node Settings
 
-Edit application settings:
+Adjust log levels and debugging preferences for your node.
 
-```sh
-nano ~/.heliades/config/app.toml
-```
-
-### Key Parameters:
-
-#### API Configuration
-```toml
-[api]
-enable = true
-enabled-unsafe-cors = false
-```
-- Enables API access.
-- **Set `enabled-unsafe-cors = false` unless required for dApps.**
-
-#### JSON-RPC Configuration (EVM API)
-```toml
-[json-rpc]
-enable = true
-address = "0.0.0.0:8545"
-api = "eth,net,web3"
-ws-address = "0.0.0.0:8546"
-```
-- Exposes **Ethereum-compatible JSON-RPC API**.
-- **Use `127.0.0.1` for private setups.**
-- **Remove `debug`, `txpool`, or `personal` if not required.**
-
-#### Pruning (Database Optimization)
-```toml
-pruning = "custom"
-pruning-keep-recent = "1000"
-pruning-interval = "10"
-```
-- Keeps database size manageable.
+- **Enable Debug Execution Trace:** Activate detailed execution trace logs for advanced debugging.  
+- **Log Level:** Choose between `Error`, `Warning`, or `Info` depending on how much detail you need in your logs.  
+After modification, click **Save Settings** to apply changes.
 
 ---
 
-## 4. Optimizing Node Performance
+## 3. Node Mode
 
-### Increase File Descriptors Limit
-```sh
-ulimit -n 65535
-```
-- Prevents connection issues for high-traffic nodes.
+Select the appropriate **storage mode** for your node to balance between disk usage and data retention.
 
-### Enable State Sync (Faster Sync)
-Instead of syncing from **block 0**, use **state sync**:
+![Node Mode](./img/config-3.png)
 
-1. **Find a Recent State Sync Snapshot**
-   ```sh
-   curl -s https://snapshots.helioschain.network/latest.json | jq .
-   ```
+| Mode | Description |
+|------|--------------|
+| **Archive** | Full blockchain storage with no pruning. Keeps all historical data. |
+| **Extra-Large** | Keeps ~181,440 blocks. Balanced pruning for rich history. |
+| **Large** | Keeps ~40,320 blocks with moderate pruning. |
+| **Medium** | Keeps ~10,000 blocks with moderate pruning. |
+| **Light** | Keeps ~1,000 blocks. Lightweight node mode. |
+| **Very Light** | Keeps only ~10 blocks. Minimum disk usage, maximum pruning. |
 
-2. **Edit `config.toml`**
-   ```toml
-   [statesync]
-   enable = true
-   rpc_servers = "SNAPSHOT_RPC_SERVER"
-   trust_height = TRUST_HEIGHT
-   trust_hash = "TRUST_HASH"
-   ```
-
-3. **Restart the Node**
-   ```sh
-   heliades start
-   ```
+Click **Save Node Mode** after selecting your preference.
 
 ---
 
-## 5. Restarting Your Node After Configuration
+## 4. Backup Settings
 
-After making changes, restart the node:
-```sh
-systemctl restart helios-node
-```
+Configure automatic backups to protect your blockchain data.
 
-Check logs:
-```sh
-journalctl -u helios-node -f
-```
+![Backup Settings](./img/config-4.png)
 
----
+- Enable **automatic backups** at intervals to avoid data loss.  
+- You can also **create manual backups** of your node keys and validator keys.  
+  These include:  
+  - `node_key.json`  
+  - `priv_validator_key.json`  
+  - Files from `keyring-local` directory  
 
-## 6. Monitoring Your Node
-
-Helios provides multiple ways to monitor node performance.
-
-### Check Sync Status
-```sh
-heliades status | jq .sync_info
-```
-
-### View Live Logs
-```sh
-tail -f ~/.heliades/logs/helios.log
-```
-
-### Use the Prometheus Metrics API
-- Enable in `config.toml`:
-  ```toml
-  prometheus = true
-  ```
-- Access metrics at:
-  ```
-  http://localhost:26660/metrics
-  ```
+> 💾 **Recommendation:** As soon as your node is initialized, use the **Create Key Backup** button and download your encrypted key backup immediately.  
+> Keep it safe — without this file, your validator cannot be recovered if the server is lost or reset.
 
 ---
 
-## Securing JSON-RPC (8545) Exposure
+## 5. Download Configuration Files
 
-Helios nodes support **EVM-compatible JSON-RPC** via port **8545**, which is essential for dApps, wallets (e.g., MetaMask), and external services to interact with the blockchain.
+You can export node configuration files for migration or manual recovery.
 
-While exposing this endpoint is **necessary for RPC functionality**, it **must be secured properly** to prevent unauthorized access or potential exploits.
+![Download Configuration Files](./img/config-5.png)
 
-### Best Practices for Securing JSON-RPC Exposure
-
-1. **Limit Public Access (Private RPC Nodes)**
-   - If running a **validator** or **private node**, restrict access to localhost:
-     ```sh
-     --json-rpc.address "127.0.0.1:8545"
-     ```
-   - This ensures that only local applications can access the node.
-
-2. **Use a Reverse Proxy for Public RPC Nodes**
-   - If exposing RPC publicly, **use a reverse proxy** like **Nginx** or **Traefik** to:
-     - Enforce **HTTPS (TLS/SSL)** for secure communication.
-     - Enable **rate limiting** to prevent abuse.
-     - Whitelist allowed IPs or domains for access.
-
-3. **Disable Unnecessary APIs**
-   - Reduce attack surface by enabling only the necessary JSON-RPC APIs:
-     ```sh
-     --json-rpc.api "eth,net,web3"
-     ```
-   - **Avoid exposing `personal`, `debug`, or `txpool`** unless explicitly required.
-
-4. **Enable CORS Restrictions (Only if Needed)**
-   - If using a frontend dApp, restrict allowed domains:
-     ```sh
-     --api.enabled-unsafe-cors=false
-     ```
-   - **Avoid setting CORS to `true` unless necessary** for a controlled environment.
-
-5. **Run a Dedicated Public RPC Node**
-   - Validators should **not** expose JSON-RPC publicly.
-   - Instead, **run a separate node** that syncs with the network but does **not participate in consensus** to **serve dApps and external clients**.
-
-### Example: Running a Secure Public RPC Node
-
-If you need to expose **8545 publicly**, use **Nginx as a reverse proxy** with rate limiting:
-
-```nginx
-server {
-    listen 443 ssl;
-    server_name dataseed.helioschain.network;
-
-    ssl_certificate /etc/letsencrypt/live/rpc.helios.network/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/rpc.helios.network/privkey.pem;
-
-    location / {
-        proxy_pass http://127.0.0.1:8545;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-        # Rate Limiting
-        limit_req zone=rpc burst=10 nodelay;
-    }
-}
-```
+Available files:
+- `config.toml`
+- `app.toml`
+- `genesis.json`
+- `priv_validator_key.json` (Validator key — **very important!**)
+- `addrbook.json`
+- `client.toml`
 
 ---
 
-## Final Notes
+## 6. Reinitialize Node
 
-- **Validators should NOT expose their JSON-RPC publicly.**
-- **Use correct pruning settings to avoid excessive storage use.**
-- **State sync can significantly speed up node setup.**
-- **Monitor logs and metrics regularly for stability.**
+If you need to reset your node to factory settings, use **Reinitialize Node**.
+
+> ⚠️ **Warning:** This will permanently delete all node data and require a full reinstallation. Make sure all your keys and backups are saved before continuing.
+
+---
+
+## 7. RPC Configuration
+
+Manage and customize your RPC endpoints, rate limits, and EVM execution settings.
+
+![RPC Config](./img/config-7.png)
+
+### Connection Settings
+- Enable or disable **HTTP RPC** and **WebSocket RPC**.  
+- Configure custom ports (default: `8545` for HTTP, `8546` for WebSocket).  
+- Limit the **maximum concurrent connections** (default: 1000).  
+
+### Rate Limiting
+![RPC Rate Limiting](./img/config-8.png)
+
+- Limit requests per second per IP.  
+- Define max request duration and compute time limits.  
+These help protect your node from overuse or abuse.
+
+### EVM Configuration
+![EVM Config](./img/config-9.png)
+
+- Set a **Gas Cap** (default 20,000,000).  
+- Define **EVM Timeout** for calls and simulations.  
+- Optionally, apply **per-method rate limits** to restrict heavy RPC methods.
+
+---
+
+## 8. Backup Management
+
+You can browse, download, and restore **Helios snapshots** directly from your dashboard.
+
+![Backup Management](./img/config-10.png)
+
+- **Create Backup:** Generate a manual snapshot.  
+- **Hosted Snapshots:** Download blockchain snapshots from the Helios network.  
+- **Local Backups:** View and restore local snapshots.
+
+---
+
+## Final Recommendations
+
+- ✅ Always save your **Key Backup** immediately after setup.  
+- 🧩 Keep your node updated regularly using `helios install`.  
+- 🔐 Enable automatic backups for maximum reliability.  
+- ⚙️ Monitor your RPC settings to optimize performance and security.  
+- 📊 Use “Archive” mode only if you have large storage available; “Light” or “Very Light” is ideal for smaller setups.

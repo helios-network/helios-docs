@@ -3,15 +3,9 @@
 Operating a node allows participants to validate transactions, secure the network, and earn rewards. Here is an overview of hardware requirements, installation, and node management, running a Helios node requires appropriate hardware and software configurations to ensure stability and optimal performance.
 
 ### Operating System Compatibility
-Helios nodes are compatible with Linux and macOS.
+Helios nodes are compatible with every platforms.
 
-| Operating System | Recommended Versions |
-|-----------------|--------------------|
-| Linux       | Ubuntu 22.04+, Debian 11+, Arch-based |
-| macOS       | Latest stable version (for non-validator nodes) |
-
-- Validators and full nodes should use Linux for best performance and reliability.
-- macOS is supported for light nodes, developer testing, and RPC endpoints.
+- Validators and full nodes should use Docker for best performance and reliability.
 
 ### Hardware Requirements
 Helios is built on Cosmos SDK with EVM compatibility, requiring nodes to meet specific computational needs.
@@ -31,13 +25,7 @@ Helios is built on Cosmos SDK with EVM compatibility, requiring nodes to meet sp
 ### Software Requirements
 To set up a Helios node, ensure the following dependencies are installed:
 
-- Go (Latest stable version)
-- Docker (Optional, for containerized deployment)
-- Helios Core Binary
-- Cosmos SDK libraries
-- Ethereum JSON-RPC (For EVM interactions)
-
-Before starting, update your system packages:
-
-```sh
-sudo apt update && sudo apt upgrade -y
+- Docker
+- Nvm [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
+- Npm v18.18.2
+- Helios CLI [https://www.npmjs.com/package/@helios-chain-labs/helios-cli](https://www.npmjs.com/package/@helios-chain-labs/helios-cli)
