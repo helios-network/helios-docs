@@ -10,6 +10,10 @@ Welcome to the **Helios Documentation Repository**, the official knowledge hub f
 - **Interchain Proof of Stake and Reputation (I-PoSR)** – Learn how Helios unifies decentralized networks.
 - **Live Updates & Versioning** – Ensures up-to-date blockchain documentation.
 
+### ETF-Native Primitive (Chrono)
+- **First L1 with native ETF baskets** – Create diversified, auto-rebalancing portfolios (ETH, SOL, USDC) in 1 click.
+- **AI-powered rebalancing (Chronos)** – Maintains target weights without bots.
+- **Zero-bridge cross-chain (Hyperion)** – Use ETF as collateral across EVM & Cosmos chains.
 ## Installation
 To set up the documentation locally, clone the repository and install dependencies:
 
